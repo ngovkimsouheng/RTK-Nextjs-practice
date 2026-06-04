@@ -5,6 +5,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "@/store/store";
 import { addToCart, removeFromCart } from "@/features/count/cartSlice";
 import { IoIosAddCircle } from "react-icons/io";
+import Link from "next/link";
+import { IoArrowBackCircle } from "react-icons/io5";
 
 export default function Carts() {
   const dispatch = useDispatch();
@@ -13,11 +15,23 @@ export default function Carts() {
   const cart = useSelector((state: RootState) => state.cart.items);
 
   return (
-    <div className="p-6">
-      <h1 className="text-2xl font-bold mb-4">Products added to cart :</h1>
+    <div className="max-w-7xl mx-auto container py-20">
+      <div className="flex py-6 justify-between items-center">
+        <Link href="/cart">
+          <IoArrowBackCircle className="text-3xl" />
+        </Link>
 
+        {cart.length > 0 && (
+          <h2 className=" text-xl font-bold">
+            Total: $
+            {cart.reduce((sum, item) => sum + item.price * item.quantity, 0)}
+          </h2>
+        )}
+      </div>
       {cart.length === 0 ? (
-        <p>Cart is empty</p>
+        <p className="h-screen container mx-auto max-w-7xl text-center  ">
+          Cart is empty
+        </p>
       ) : (
         <div className="grid gap-4">
           {cart.map((item) => (
@@ -62,13 +76,6 @@ export default function Carts() {
             </div>
           ))}
         </div>
-      )}
-
-      {cart.length > 0 && (
-        <h2 className="mt-6 text-xl font-bold">
-          Total: $
-          {cart.reduce((sum, item) => sum + item.price * item.quantity, 0)}
-        </h2>
       )}
     </div>
   );
