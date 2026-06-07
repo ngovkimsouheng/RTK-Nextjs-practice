@@ -10,24 +10,23 @@ import { DiaTextReveal } from "@/components/ui/dia-text-reveal";
 import { MorphingText } from "@/components/ui/morphing-text";
 import { LightRays } from "@/components/ui/light-rays";
 import BlurText from "@/components/BlurText";
+import AgencyHeroSection from "@/components/shadcn-space/blocks/hero-01";
+import { Component } from "@/components/hero";
+
 export default function Home() {
   const dispatch = useDispatch();
   const handleAnimationComplete = () => {
     console.log("Animation completed!");
   };
+
   return (
-    <div className="pb-20">
-      <div className="relative py-20 grid place-content-center h-screen w-full overflow-hidden rounded-xl border">
-        <LightRays />
-        <BlurText
-          text="welcome to our web page"
-          delay={200}
-          animateBy="words"
-          direction="top"
-          onAnimationComplete={handleAnimationComplete}
-          className="text-6xl mb-8"
-        />
-      </div>
+    <div className="pt-10">
+      {/* <LightRays /> */}
+      <AgencyHeroSection />
+      <Component />
     </div>
+    // <div className="w-full h-full min-h-screen">
+    //   <Component />
+    // </div>
   );
 }

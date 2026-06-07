@@ -30,7 +30,7 @@ export default function RootLayout({
     >
       <StoreProvider>
         <body>
-          <header className=" container mx-auto fixed z-99 top-2.5">
+          <header className="  w-full mx-auto fixed z-99 top-2.5">
             <NavHeader></NavHeader>
           </header>
           <main> {children}</main>

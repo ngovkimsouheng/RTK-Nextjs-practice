@@ -16,9 +16,7 @@ export default function CartPage() {
           <p>${item.price}</p>
           <p>Qty: {item.quantity}</p>
 
-          <button onClick={() => dispatch(removeFromCart(item.id))}>
-            -
-          </button>
+          <button onClick={() => dispatch(removeFromCart(item.id))}>-</button>
 
           <button
             onClick={() =>
@@ -26,7 +24,7 @@ export default function CartPage() {
                 addToCart({
                   ...item,
                   quantity: 1,
-                })
+                }),
               )
             }
           >

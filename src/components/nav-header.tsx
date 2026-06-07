@@ -30,8 +30,14 @@ function NavHeader() {
         {" "}
         <Tab setPosition={setPosition}>Cart</Tab>
       </Link>
-      <Tab setPosition={setPosition}>About</Tab>
-
+      {/* <Tab setPosition={setPosition}>About</Tab> */}
+      <Link
+        className={pathname === "/product" ? "font-semibold text-blue-600" : ""}
+        href={"/product"}
+      >
+        {" "}
+        <Tab setPosition={setPosition}>Product</Tab>
+      </Link>
       <Cursor position={position} />
     </ul>
   );
@@ -42,7 +48,9 @@ const Tab = ({
   setPosition,
 }: {
   children: React.ReactNode;
-  setPosition: any;
+  setPosition: React.Dispatch<
+    React.SetStateAction<{ left: number; width: number; opacity: number }>
+  >;
 }) => {
   const ref = useRef<HTMLLIElement>(null);
   return (
