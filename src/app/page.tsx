@@ -20,10 +20,11 @@ export default function Home() {
   };
 
   return (
-    <div className="pt-10">
+    <div className="">
       {/* <LightRays /> */}
       <AgencyHeroSection />
-      <Component />
+      {/* <Component /> */}
+      home
     </div>
     // <div className="w-full h-full min-h-screen">
     //   <Component />

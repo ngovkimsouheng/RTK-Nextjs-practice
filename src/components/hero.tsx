@@ -129,7 +129,7 @@ export const Component = () => {
       </nav>
 
       {/* Hero Section */}
-      <main className="flex-1 relative z-10 pt-8 pb-32 md:pt-12 md:pb-48 px-4 flex flex-col items-center justify-center w-full max-w-[1440px] mx-auto">
+      <main className="flex-1 relative z-10 pt-8 pb-32 md:pt-1 md:pb-30 px-4 flex flex-col items-center justify-center w-full max-w-[1440px] mx-auto">
         {/* Massive Typography & Elements Container */}
         <div className="relative w-full max-w-5xl mx-auto flex flex-col items-center justify-center text-center z-10 mt-4 mb-16">
           {/* Text Stack */}
@@ -172,7 +172,7 @@ export const Component = () => {
                     "1px 1px 0 #001A99, 2px 2px 0 #001A99, 3px 3px 0 #001A99, 4px 4px 0 #001A99, 5px 5px 0 #001A99, 6px 6px 0 #001A99, 7px 7px 0 #001A99, 8px 8px 0 #001A99, 9px 9px 0 #001A99, 10px 10px 0 #001A99, 11px 11px 0 #001A99, 12px 12px 0 #001A99, 13px 13px 0 #001A99, 14px 14px 0 #001A99",
                 }}
               >
-                PEOPLE
+                PROJECT
               </h1>
             </div>
           </div>
@@ -185,7 +185,7 @@ export const Component = () => {
               transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
               className="absolute bottom-[10%] left-[5%] md:left-[20%] z-30 pointer-events-auto"
             >
-              <div className="w-40 md:w-52 aspect-[3/3.5] bg-white/20 backdrop-blur-md border border-white/40 rounded-[2rem] p-5 flex flex-col items-center justify-center rotate-[-12deg] shadow-2xl hover:rotate-0 transition-transform duration-500">
+              <div className="w-40 md:w-52 aspect-[3/3.5] bg-white/5 backdrop-blur-xs border border-white/40 rounded-[2rem] p-5 flex flex-col items-center justify-center rotate-[-12deg] shadow-2xl hover:rotate-0 transition-transform duration-500">
                 <div className="w-16 h-16 md:w-24 md:h-24 bg-[#D2B48C] rounded-full flex items-center justify-center mb-4 shadow-inner border-[3px] border-white/50 overflow-hidden">
                   <img
                     src="https://api.dicebear.com/7.x/avataaars/svg?seed=Felix&backgroundColor=D2B48C"
@@ -215,7 +215,7 @@ export const Component = () => {
               }}
               className="absolute top-[15%] right-[5%] md:right-[22%] z-30 pointer-events-auto"
             >
-              <div className="w-40 md:w-52 aspect-[3/3.5] bg-white/20 backdrop-blur-md border border-white/40 rounded-[2rem] p-5 flex flex-col items-center justify-center rotate-[12deg] shadow-2xl hover:rotate-0 transition-transform duration-500">
+              <div className="w-40 md:w-52 aspect-[3/3.5] bg-white/5 backdrop-blur-xs border border-white/40 rounded-[2rem] p-5 flex flex-col items-center justify-center rotate-[12deg] shadow-2xl hover:rotate-0 transition-transform duration-500">
                 <div className="w-16 h-16 md:w-24 md:h-24 bg-[#2C3E50] rounded-full flex items-center justify-center mb-4 shadow-inner border-[3px] border-white/50 overflow-hidden">
                   <img
                     src="https://api.dicebear.com/7.x/pixel-art/svg?seed=John"
@@ -245,7 +245,7 @@ export const Component = () => {
             </div>
 
             {/* Circular Badge */}
-            <div className="absolute bottom-[-10%] right-[0%] md:right-[15%] z-40 pointer-events-auto">
+            <div className="absolute bottom-[-25%] right-[0%] md:right-[10%] z-40 pointer-events-auto">
               <CircularBadge />
             </div>
           </div>

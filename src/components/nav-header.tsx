@@ -13,26 +13,23 @@ function NavHeader() {
   const pathname = usePathname();
   return (
     <ul
-      className="relative   mx-auto flex w-fit rounded-full border-2 border-black bg-white p-1"
+      className="relative text-[#0038FF]  mx-auto flex w-fit  border-2  border-[#CCFF00] bg-white/10 p-1"
       onMouseLeave={() => setPosition((pv) => ({ ...pv, opacity: 0 }))}
     >
-      <Link
-        className={pathname === "/" ? "font-bold text-blue-600" : ""}
-        href="/"
-      >
+      <Link className={pathname === "/" ? "font-semibold " : ""} href="/">
         <Tab setPosition={setPosition}>Home</Tab>
       </Link>
 
-      <Link
-        className={pathname === "/cart" ? "font-semibold text-blue-600" : ""}
+      {/* <Link
+        className={pathname === "/cart" ? "font-semibold " : ""}
         href={"/cart"}
       >
         {" "}
         <Tab setPosition={setPosition}>Cart</Tab>
-      </Link>
+      </Link> */}
       {/* <Tab setPosition={setPosition}>About</Tab> */}
       <Link
-        className={pathname === "/product" ? "font-semibold text-blue-600" : ""}
+        className={pathname === "/product" ? "font-semibold " : ""}
         href={"/product"}
       >
         {" "}
@@ -66,7 +63,7 @@ const Tab = ({
           left: ref.current.offsetLeft,
         });
       }}
-      className="relative z-10 block cursor-pointer px-3 py-1.5 text-xs uppercase text-white mix-blend-difference md:px-5 md:py-3 md:text-base"
+      className="relative z-10 block cursor-pointer px-3 py-1.5 text-xs uppercase text-[#CCFF00] mix-blend-difference md:px-5 md:py-2 md:text-base"
     >
       {children}
     </li>
@@ -77,7 +74,7 @@ const Cursor = ({ position }: { position: any }) => {
   return (
     <motion.li
       animate={position}
-      className="absolute z-0 h-7 rounded-full bg-black md:h-12"
+      className="absolute z-0 h-7  bg-[#0038FF] md:h-10"
     />
   );
 };

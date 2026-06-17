@@ -36,3 +36,12 @@ export type ProductType = {
   availability: boolean;
   category: Category;
 };
+
+export type ProductType2 = {
+  id: number;
+  title: string;
+  price: number;
+  description: string;
+  image: string;
+  rating: string;
+};

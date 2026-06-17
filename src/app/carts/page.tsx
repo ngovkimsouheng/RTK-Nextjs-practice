@@ -15,7 +15,7 @@ export default function Carts() {
   const cart = useSelector((state: RootState) => state.cart.items);
 
   return (
-    <div className="max-w-7xl mx-auto container py-20">
+    <div className="max-w-7xl  mx-auto container py-20">
       <div className="flex py-6 justify-between items-center">
         <Link href="/cart">
           <IoArrowBackCircle className="text-3xl" />

@@ -89,6 +89,7 @@ export default function AgencyHeroSection() {
       <main>
         <HeroSection avatarList={avatarList} />
         <BrandSlider brandList={brandList} />
+       
       </main>
     </div>
   );
