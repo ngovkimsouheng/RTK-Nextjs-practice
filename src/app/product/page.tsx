@@ -43,28 +43,44 @@ export default function ProductList() {
   const itemsPerPage = 8;
   const [search, setSearch] = useState("");
   const [priceFilter, setPriceFilter] = useState("all");
+  const [sortOrder, setSortOrder] = useState("none");
+  // "asc" | "desc" | "none"
   const filteredProducts =
-    data?.filter((product) => {
-      const matchSearch = product.title
-        .toLowerCase()
-        .includes(search.toLowerCase());
+    data
+      ?.filter((product) => {
+        const searchText = search.toLowerCase();
 
-      let matchPrice = true;
+        const matchSearch = [
+          product.id,
+          product.title,
+          product.description,
+          product.price,
+        ]
+          .join(" ")
+          .toLowerCase()
+          .includes(searchText);
 
-      if (priceFilter === "under50") {
-        matchPrice = product.price < 50;
-      }
+        let matchPrice = true;
 
-      if (priceFilter === "50to100") {
-        matchPrice = product.price >= 50 && product.price <= 100;
-      }
+        if (priceFilter === "under50") {
+          matchPrice = product.price < 50;
+        }
 
-      if (priceFilter === "above100") {
-        matchPrice = product.price > 100;
-      }
+        if (priceFilter === "50to100") {
+          matchPrice = product.price >= 50 && product.price <= 100;
+        }
 
-      return matchSearch && matchPrice;
-    }) || [];
+        if (priceFilter === "above100") {
+          matchPrice = product.price > 100;
+        }
+
+        return matchSearch && matchPrice;
+      })
+      .sort((a, b) => {
+        if (sortOrder === "asc") return a.price - b.price;
+        if (sortOrder === "desc") return b.price - a.price;
+        return 0;
+      }) || [];
   const totalPages = Math.ceil(filteredProducts.length / itemsPerPage);
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
@@ -103,7 +119,7 @@ export default function ProductList() {
           </div>
         </DialogContent>
       </Dialog>
-      <div className="flex max-w-7xl container mx-auto sticky top-20 justify-between items-center mb-4">
+      <div className="flex max-w-7xl  container mx-auto sticky top-20 justify-between items-center mb-4">
         <div className="flex gap-4 items-center mb-4">
           <input
             type="text"
@@ -116,7 +132,7 @@ export default function ProductList() {
             className="border rounded-md px-3 py-2 w-80"
           />
 
-          <select
+          {/* <select
             value={priceFilter}
             onChange={(e) => {
               setPriceFilter(e.target.value);
@@ -128,6 +144,18 @@ export default function ProductList() {
             <option value="under50">Under $50</option>
             <option value="50to100">$50 - $100</option>
             <option value="above100">Above $100</option>
+          </select> */}
+          <select
+            value={sortOrder}
+            onChange={(e) => {
+              setSortOrder(e.target.value);
+              setCurrentPage(1);
+            }}
+            className="border rounded-md px-3 py-2"
+          >
+            <option value="none">Sort by price</option>
+            <option value="asc">Price: Low → High</option>
+            <option value="desc">Price: High → Low</option>
           </select>
         </div>
       </div>
@@ -152,7 +180,7 @@ export default function ProductList() {
           </Link>
         ))}
       </div> */}
-      <div className="container mt-20 max-w-7xl mx-auto">
+      <div className="container  mt-20 max-w-7xl mx-auto">
         <Table>
           {/* <TableCaption>Product List</TableCaption> */}
 
@@ -161,6 +189,7 @@ export default function ProductList() {
               <TableHead>ID</TableHead>
               <TableHead>Image</TableHead>
               <TableHead>Title</TableHead>
+              <TableHead>Description</TableHead>
               <TableHead className="text-right">Price</TableHead>
             </TableRow>
           </TableHeader>
@@ -177,7 +206,6 @@ export default function ProductList() {
                 }}
               >
                 <TableCell>{product.id}</TableCell>
-
                 <TableCell>
                   <img
                     src={product.image}
@@ -185,9 +213,10 @@ export default function ProductList() {
                     className="w-12 h-12 object-contain"
                   />
                 </TableCell>
-
-                <TableCell>{product.title}</TableCell>
-
+                <TableCell>{product.title}</TableCell>{" "}
+                <TableCell className="truncate max-w-xs">
+                  {product.description}
+                </TableCell>
                 <TableCell className="text-right">${product.price}</TableCell>
               </TableRow>
             ))}
